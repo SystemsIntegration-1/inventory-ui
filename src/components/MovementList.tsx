@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import {
   Typography,
   Box,
@@ -6,9 +6,9 @@ import {
   CardContent,
   Grid,
   Chip,
-  Divider,
-} from "@mui/material";
-import { InventoryMovement } from "../utils/types";
+  Divider
+} from '@mui/material';
+import { InventoryMovement } from '../utils/types';
 
 interface MovementListProps {
   movements: InventoryMovement[];
@@ -18,11 +18,9 @@ interface MovementListProps {
 const MovementList: React.FC<MovementListProps> = ({ movements, title }) => {
   const getMovementColor = (type: string) => {
     const lowerType = type.toLowerCase();
-    if (lowerType.includes("incoming")) return "success";
-    if (lowerType.includes("outgoing")) return "error";
-    if (lowerType.includes("transfer")) return "info";
-    if (lowerType.includes("failed")) return "warning";
-    return "default";
+    if (lowerType.includes('outgoing')) return 'error';
+    if (lowerType.includes('failed')) return 'warning';
+    return 'default';
   };
 
   return (
@@ -32,7 +30,7 @@ const MovementList: React.FC<MovementListProps> = ({ movements, title }) => {
           {title} ({movements.length})
         </Typography>
       )}
-
+      
       {movements.length === 0 ? (
         <Typography color="text.secondary">No movements found</Typography>
       ) : (
@@ -42,9 +40,9 @@ const MovementList: React.FC<MovementListProps> = ({ movements, title }) => {
               <Card
                 elevation={0}
                 sx={{
-                  border: "1px solid #eee",
+                  border: '1px solid #eee',
                   borderRadius: 2,
-                  mb: 1,
+                  mb: 1
                 }}
               >
                 <CardContent>
@@ -57,30 +55,29 @@ const MovementList: React.FC<MovementListProps> = ({ movements, title }) => {
                         variant="outlined"
                       />
                     </Grid>
-
+                    
                     <Grid item xs={6} sm={3}>
                       <Typography variant="body2">
                         <strong>Quantity:</strong> {movement.quantity}
                       </Typography>
                     </Grid>
-
+                    
                     <Grid item xs={6} sm={3}>
                       <Typography variant="body2">
-                        <strong>Date:</strong>{" "}
-                        {new Date(movement.movementDate).toLocaleDateString()}
+                        <strong>Date:</strong> {new Date(movement.movementDate).toLocaleDateString()}
                       </Typography>
                     </Grid>
-
+                    
                     <Grid item xs={12}>
                       <Divider sx={{ my: 1 }} />
                     </Grid>
-
+                    
                     <Grid item xs={6}>
                       <Typography variant="body2">
                         <strong>Origin:</strong> {movement.origin}
                       </Typography>
                     </Grid>
-
+                    
                     <Grid item xs={6}>
                       <Typography variant="body2">
                         <strong>Destination:</strong> {movement.destination}

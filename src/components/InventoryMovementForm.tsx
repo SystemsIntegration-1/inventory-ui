@@ -23,7 +23,7 @@ interface InventoryMovementFormProps {
   success?: string;
 }
 
-const movementTypes = ["Incoming", "Outgoing", "Transfer"];
+const movementTypes = ["Outgoing"];
 
 const InventoryMovementForm: React.FC<InventoryMovementFormProps> = ({
   movement,

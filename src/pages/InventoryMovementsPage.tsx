@@ -34,12 +34,8 @@ const InventoryMovementsPage = () => {
 
   const getMovementColor = (type: string) => {
     switch (type) {
-      case "Incoming":
-        return "success";
       case "Outgoing":
         return "error";
-      case "Transfer":
-        return "info";
       default:
         return "default";
     }
